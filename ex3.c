@@ -22,7 +22,7 @@
 int isColumnFull(char[][COLS], int, int, int);
 int isBoardFull(char[][COLS], int, int);
 int isInBounds(int, int, int, int);
-int getColumnHeight(char[][COLS], int , int, int);
+int getColumnHeight(char[][COLS], int, int);
 int checkIfPossibleToPutInAColumn(char board[][COLS], int rows, int cols, int col);
 int checkIfNumSequenceForPlayer(char playerToken, char board[][COLS], int rows, int cols, int inSequenceNum);
 int checkIfNumSequenceForPlayerBecauseOfLastMove(char playerToken, char board[][COLS], int rows, int cols, int inSequenceNum, int lastMoveRow, int lastMoveCol);
@@ -425,9 +425,13 @@ int generateComputerPlayerMove(char board [][COLS], int rows, int cols, char pla
             return column;
         }
     }
+
+    //never gets here but the compiler cries...
+
+    return -1;
 }
 
-int getColumnHeight(char board[][COLS], int rows, int cols, int col) {
+int getColumnHeight(char board[][COLS], int rows, int col) {
     if (board[0][col] != EMPTY)
         return rows;
 
