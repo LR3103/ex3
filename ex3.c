@@ -282,7 +282,6 @@ int checkIfNumSequenceForPlayerBecauseOfLastMove(char playerToken, char board[][
         }
     }
     
-    // End of function body - must return a value if no sequence is found
     return 0;
 }
 
