@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 #ifndef ROWS
-#define ROWS 10
+#define ROWS 6
 #endif
 
 #ifndef COLS
-#define COLS 4
+#define COLS 7
 #endif
 
 #define CONNECT_N 4
@@ -472,7 +472,7 @@ int requestHumanInput(char board[][COLS], int rows, int cols) {
 
     // Use a while loop that continues until valid input is received
     while (!validInput) {
-        printf("Enter column (1-%d). \n", COLS);
+        printf("Enter column (1-%d): \n", COLS);
 
         isReadSuccessful = scanf(" %d", &userInput);
 
@@ -547,7 +547,7 @@ int playPlayerQueary(char board[][COLS], int rows, int cols, int IndexChoiseArra
         playerMove = requestHumanInput(board, rows, cols);
     }
     else{
-        playerMove = generateComputerPlayerMove(board, rows, cols, TOKEN_P1, TOKEN_P2, IndexChoiseArray);
+        playerMove = generateComputerPlayerMove(board, rows, cols, numPlayer == 1 ? TOKEN_P1 : TOKEN_P2, numPlayer != 1 ? TOKEN_P1 : TOKEN_P2, IndexChoiseArray);
         printf("Computer chose column %d", playerMove + 1);
     }
     return playerMove;
