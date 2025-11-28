@@ -198,10 +198,15 @@ int checkIfNumSequenceForPlayerBecauseOfLastMove(char playerToken, char board[][
     if (inSequenceNum < 2)
         return 0; //No Sequence if Below 2
     
+    //bounding box
+    int minRow = lastMoveRow - inSequenceNum > 0 ? lastMoveRow - inSequenceNum : 0;
+    int maxRow = lastMoveRow + inSequenceNum < rows ? lastMoveRow + inSequenceNum : rows;
+    int minCol = lastMoveCol - inSequenceNum > 0 ? lastMoveCol - inSequenceNum : 0;
+    int maxCol = lastMoveCol + inSequenceNum < cols ? lastMoveCol + inSequenceNum : cols;
 
     // Start of the function body
-    for (int row = 0; row < rows; row++) {
-        for (int col = cols - 1; col >= 0; col--) {
+    for (int row = minRow; row < maxRow; row++) {
+        for (int col = minCol; col < maxCol; col++) {
             //if not this player skip to the next position
             int counter = 0;
 
