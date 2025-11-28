@@ -361,7 +361,7 @@ int checkPlayerForPossibleSequence(char board [][COLS], int rows, int cols, char
         }
         
         //get row index of the inserted item
-        int columnHeight = getColumnHeight(board, rows, cols, colToCheckFirst);
+        int columnHeight = getColumnHeight(board, rows, colToCheckFirst);
         int rowIndexInsert = rows - columnHeight;
 
         //if we succeeded making the move check for a sequence of 3
