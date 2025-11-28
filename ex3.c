@@ -472,23 +472,23 @@ int requestHumanInput(char board[][COLS], int rows, int cols) {
 
     // Use a while loop that continues until valid input is received
     while (!validInput) {
-        printf("Enter column (1-%d): \n", COLS);
+        printf("Enter column (1-%d): ", COLS);
 
         isReadSuccessful = scanf(" %d", &userInput);
 
         if (!isReadSuccessful) {
-            printf("Invalid value. Enter a number.");
+            printf("Invalid input. Enter a number. \n");
             while (getchar() != '\n'); //clearBuffer
         } 
         else {
             column = userInput - 1;
             if (!(column > - 1 && column < cols)){
-                printf("Invalid column. try again.");
+                printf("Invalid column. Choose between 1 and %d. \n", cols);
                 continue;
             }
             int columnNotFull = checkIfPossibleToPutInAColumn(board, rows, cols, column);
             if (!columnNotFull){
-                printf("Column %d is full. Choose another column", column);
+                printf("Column %d is full. Choose another column. \n", column + 1);
                 continue;
             }
             validInput = 1;
